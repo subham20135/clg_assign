@@ -12,6 +12,10 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
       background-color: #ffffff;
@@ -114,15 +118,21 @@
       gap: 15px;
     }
 
-    nav ul li span {
+    nav ul li a {
       color: #ffffff;
       font-weight: bold;
       font-size: 15px;
-      padding: 6px 12px;
-      border-radius: 3px;
-      background-color: rgba(255, 255, 255, 0.1);
-      cursor: default;
-      user-select: none;
+      padding: 6px 14px;
+      border-radius: 4px;
+      background-color: rgba(255, 255, 255, 0.15);
+      text-decoration: none;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+      display: inline-block;
+    }
+
+    nav ul li a:hover {
+      background-color: rgba(255, 255, 255, 0.35);
+      transform: translateY(-1px);
     }
 
     .home-box {
@@ -390,11 +400,17 @@
       margin: 15px 0;
     }
 
-    .footer-links span {
+    .footer-links a {
       color: #dddddd;
       margin: 0 8px;
       font-size: 14px;
-      cursor: default;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+      text-decoration: underline;
     }
 
     .copyright-text {
@@ -442,13 +458,13 @@
 
       <nav>
         <ul>
-          <li><span>Home</span></li>
-          <li><span>About</span></li>
-          <li><span>Courses</span></li>
-          <li><span>Faculty</span></li>
-          <li><span>Facilities</span></li>
-          <li><span>Admission</span></li>
-          <li><span>Contact</span></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#faculty">Faculty</a></li>
+          <li><a href="#facilities">Facilities</a></li>
+          <li><a href="#admission">Admission</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -456,18 +472,18 @@
 
   <main>
 
-    <section>
+    <section id="home">
       <div class="container home-box">
         <h1>Welcome to NIST University</h1>
         <p>Providing quality technical education, promoting research, and building successful future engineering careers.</p>
         <img src="images/banner.webp" alt="NIST University Campus" class="hero-banner-img">
         <div>
-          <button type="button" class="btn">Learn More</button>
+          <a href="#about" class="btn" style="text-decoration: none;">Learn More</a>
         </div>
       </div>
     </section>
 
-    <section class="section-bg">
+    <section id="about" class="section-bg">
       <div class="container">
         <h2 class="section-title">About NIST University</h2>
         <p class="section-subtitle">Established in 1994 in Berhampur, Odisha</p>
@@ -491,7 +507,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="courses">
       <div class="container">
         <h2 class="section-title">Courses Offered</h2>
         <p class="section-subtitle">Undergraduate and Postgraduate Academic Programs</p>
@@ -542,7 +558,7 @@
       </div>
     </section>
 
-    <section class="section-bg">
+    <section id="faculty" class="section-bg">
       <div class="container">
         <h2 class="section-title">Faculty Members</h2>
         <p class="section-subtitle">Experienced Teachers and Department Professors</p>
@@ -582,7 +598,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="facilities">
       <div class="container">
         <h2 class="section-title">College Facilities</h2>
         <p class="section-subtitle">Infrastructure and Student Resources</p>
@@ -623,7 +639,7 @@
       </div>
     </section>
 
-    <section class="section-bg">
+    <section id="admission" class="section-bg">
       <div class="container">
         <h2 class="section-title">Admission Form</h2>
         <p class="section-subtitle">Fill in the details for admission registration</p>
@@ -715,7 +731,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="contact">
       <div class="container">
         <h2 class="section-title">Contact Us</h2>
         <p class="section-subtitle">Reach out to the college address and administration</p>
@@ -748,13 +764,13 @@
       <h3>NIST University</h3>
       
       <div class="footer-links">
-        <span>Home</span> | 
-        <span>About</span> | 
-        <span>Courses</span> | 
-        <span>Faculty</span> | 
-        <span>Facilities</span> | 
-        <span>Admission</span> | 
-        <span>Contact</span>
+        <a href="#home">Home</a> | 
+        <a href="#about">About</a> | 
+        <a href="#courses">Courses</a> | 
+        <a href="#faculty">Faculty</a> | 
+        <a href="#facilities">Facilities</a> | 
+        <a href="#admission">Admission</a> | 
+        <a href="#contact">Contact</a>
       </div>
 
       <p class="copyright-text">&copy; 2026 NIST University.</p>
