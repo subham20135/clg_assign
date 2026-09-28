@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NIST University - College Website</title>
+  
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #ffffff;
+      color: #333333;
+      line-height: 1.5;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 15px 0;
+    }
+
+    section {
+      padding: 40px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    
+    .section-bg {
+      background-color: #eef5fc;
+    }
+
+    h1, h2, h3 {
+      color: #003366;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 15px;
+      color: #555555;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #003366;
+      color: #ffffff;
+      padding: 10px 20px;
+      border: 1px solid #002244;
+      border-radius: 4px;
+      font-size: 15px;
+      cursor: default;
+    }
+
+    .btn-reset {
+      background-color: #666666;
+      border-color: #444444;
+    }
+
+    header {
+      background-color: #003366;
+      color: #ffffff;
+      padding: 20px 0;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo-img {
+      height: 60px;
+      width: auto;
+      border-radius: 6px;
+      background-color: #ffffff;
+      padding: 3px;
+    }
+
+    .college-name {
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .college-tagline {
+      font-size: 13px;
+      color: #dddddd;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    nav ul li span {
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 15px;
+      padding: 6px 12px;
+      border-radius: 3px;
+      background-color: rgba(255, 255, 255, 0.1);
+      cursor: default;
+      user-select: none;
+    }
+
+    .home-box {
+      text-align: center;
+      padding: 30px 0;
+    }
+
+    .home-box h1 {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .home-box p {
+      font-size: 16px;
+      max-width: 750px;
+      margin: 0 auto 20px auto;
+      color: #444444;
+    }
+
+    .hero-banner-img {
+      width: 100%;
+      max-height: 420px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin: 20px 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .about-box {
+      background-color: #ffffff;
+      border: 1px solid #cccccc;
+      padding: 20px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .about-box h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .mv-grid {
+      display: flex;
+      gap: 20px;
+    }
+
+    .mv-card {
+      flex: 1;
+      background-color: #ffffff;
+      border: 1px solid #cccccc;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    .mv-card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .courses-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .course-card {
+      flex: 1 1 calc(50% - 20px);
+      min-width: 280px;
+      background-color: #ffffff;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      padding: 20px;
+    }
+
+    .course-card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #eeeeee;
+      padding-bottom: 5px;
+    }
+
+    .course-card p {
+      font-size: 14px;
+      color: #555555;
+      margin-bottom: 15px;
+    }
+
+    .course-details {
+      font-size: 13px;
+      list-style: none;
+      background-color: #f9f9f9;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #eeeeee;
+    }
+
+    .course-details li {
+      margin-bottom: 5px;
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+      background-color: #ffffff;
+    }
+
+    .faculty-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    .faculty-table th, 
+    .faculty-table td {
+      border: 1px solid #cccccc;
+      padding: 12px 15px;
+      text-align: left;
+    }
+
+    .faculty-table th {
+      background-color: #003366;
+      color: #ffffff;
+      font-size: 15px;
+    }
+
+    .faculty-table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    .facilities-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .facility-card {
+      flex: 1 1 calc(33.333% - 20px);
+      min-width: 250px;
+      background-color: #ffffff;
+      border: 1px solid #cccccc;
+      border-radius: 8px;
+      padding: 15px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .facility-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+
+    .facility-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .facility-card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #003366;
+      border-bottom: 1px solid #eeeeee;
+      padding-bottom: 5px;
+    }
+
+    .facility-card p {
+      font-size: 14px;
+      color: #555555;
+    }
+
+    .form-box {
+      background-color: #ffffff;
+      border: 1px solid #cccccc;
+      padding: 30px;
+      max-width: 750px;
+      margin: 0 auto;
+      border-radius: 5px;
+    }
+
+    .form-field {
+      margin-bottom: 18px;
+    }
+
+    .form-field label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    .input-control {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1px solid #cccccc;
+      border-radius: 4px;
+      font-size: 14px;
+      font-family: inherit;
+    }
+
+    .radio-option, .checkbox-option {
+      display: inline-block;
+      margin-right: 15px;
+      font-weight: normal;
+      font-size: 14px;
+    }
+
+    .form-btn-group {
+      margin-top: 25px;
+      display: flex;
+      gap: 15px;
+    }
+
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .contact-details {
+      flex: 1 1 300px;
+      background-color: #ffffff;
+      border: 1px solid #cccccc;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    .contact-details h3 {
+      font-size: 18px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #eeeeee;
+      padding-bottom: 5px;
+    }
+
+    .contact-details p {
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    .map-box {
+      flex: 1 1 300px;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      overflow: hidden;
+      min-height: 250px;
+    }
+
+    .map-box iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 250px;
+      border: 0;
+    }
+
+    footer {
+      background-color: #003366;
+      color: #ffffff;
+      padding: 25px 0 15px 0;
+      text-align: center;
+    }
+
+    .footer-links {
+      margin: 15px 0;
+    }
+
+    .footer-links span {
+      color: #dddddd;
+      margin: 0 8px;
+      font-size: 14px;
+      cursor: default;
+    }
+
+    .copyright-text {
+      font-size: 13px;
+      color: #bbbbbb;
+    }
+
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .logo-box {
+        text-align: center;
+      }
+      nav ul {
+        justify-content: center;
+      }
+      .mv-grid {
+        flex-direction: column;
+      }
+      .courses-grid {
+        flex-direction: column;
+      }
+      .facilities-grid {
+        flex-direction: column;
+      }
+      .contact-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container header-content">
+      <div class="logo-box">
+        <img src="images/logo.png" alt="NIST Logo" class="logo-img">
+        <div>
+          <div class="college-name">NIST University</div>
+          <div class="college-tagline">National Institute of Science & Technology</div>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><span>Home</span></li>
+          <li><span>About</span></li>
+          <li><span>Courses</span></li>
+          <li><span>Faculty</span></li>
+          <li><span>Facilities</span></li>
+          <li><span>Admission</span></li>
+          <li><span>Contact</span></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section>
+      <div class="container home-box">
+        <h1>Welcome to NIST University</h1>
+        <p>Providing quality technical education, promoting research, and building successful future engineering careers.</p>
+        <img src="images/banner.webp" alt="NIST University Campus" class="hero-banner-img">
+        <div>
+          <button type="button" class="btn">Learn More</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-bg">
+      <div class="container">
+        <h2 class="section-title">About NIST University</h2>
+        <p class="section-subtitle">Established in 1994 in Berhampur, Odisha</p>
+
+        <article class="about-box">
+          <h3>College Overview</h3>
+          <p>National Institute of Science & Technology (NIST) University is an engineering institution located in Berhampur, Odisha. Established in 1994, the university provides undergraduate, postgraduate, and doctoral degrees in various engineering and technology branches.</p>
+        </article>
+
+        <div class="mv-grid">
+          <article class="mv-card">
+            <h3>Mission</h3>
+            <p>To provide strong academic knowledge and practical skills to help students excel in technological innovation and professional fields.</p>
+          </article>
+
+          <article class="mv-card">
+            <h3>Vision</h3>
+            <p>To be recognized as a leading technical university providing high-quality education and research for societal development.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Courses Offered</h2>
+        <p class="section-subtitle">Undergraduate and Postgraduate Academic Programs</p>
+
+        <div class="courses-grid">
+          
+          <article class="course-card">
+            <h3>B.Tech CSE</h3>
+            <p>Computer Science & Engineering focuses on programming languages, software development, data structures, and computer networking.</p>
+            <ul class="course-details">
+              <li><strong>Duration:</strong> 4 Years</li>
+              <li><strong>Eligibility:</strong> 10+2 with Science (PCM)</li>
+              <li><strong>Seats:</strong> 180</li>
+            </ul>
+          </article>
+
+          <article class="course-card">
+            <h3>B.Tech ECE</h3>
+            <p>Electronics & Communication Engineering covers electronic circuits, signal processing, wireless communication, and embedded systems.</p>
+            <ul class="course-details">
+              <li><strong>Duration:</strong> 4 Years</li>
+              <li><strong>Eligibility:</strong> 10+2 with Science (PCM)</li>
+              <li><strong>Seats:</strong> 120</li>
+            </ul>
+          </article>
+
+          <article class="course-card">
+            <h3>B.Tech EEE</h3>
+            <p>Electrical & Electronics Engineering deals with electrical power generation, electrical machinery, circuit design, and control systems.</p>
+            <ul class="course-details">
+              <li><strong>Duration:</strong> 4 Years</li>
+              <li><strong>Eligibility:</strong> 10+2 with Science (PCM)</li>
+              <li><strong>Seats:</strong> 60</li>
+            </ul>
+          </article>
+
+          <article class="course-card">
+            <h3>MCA</h3>
+            <p>Master of Computer Applications is a postgraduate degree in advanced computer application development, database management, and web applications.</p>
+            <ul class="course-details">
+              <li><strong>Duration:</strong> 2 Years</li>
+              <li><strong>Eligibility:</strong> Graduation with Mathematics</li>
+              <li><strong>Seats:</strong> 60</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section-bg">
+      <div class="container">
+        <h2 class="section-title">Faculty Members</h2>
+        <p class="section-subtitle">Experienced Teachers and Department Professors</p>
+
+        <div class="table-responsive">
+          <table class="faculty-table">
+            <thead>
+              <tr>
+                <th>Faculty Name</th>
+                <th>Department</th>
+                <th>Designation</th>
+                <th>Experience</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Dr. Swetanjali Das</td>
+                <td>CSE</td>
+                <td>Professor</td>
+                <td>15 Years</td>
+              </tr>
+              <tr>
+                <td>Dr. Mitu Baral</td>
+                <td>ECE</td>
+                <td>Associate Professor</td>
+                <td>10 Years</td>
+              </tr>
+              <tr>
+                <td>Mr. N. Toyaad</td>
+                <td>CSE</td>
+                <td>Assistant Professor</td>
+                <td>5 Years</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">College Facilities</h2>
+        <p class="section-subtitle">Infrastructure and Student Resources</p>
+
+        <div class="facilities-grid">
+          
+          <article class="facility-card">
+            <img src="images/computer_lab.jpg" alt="Computer Lab" class="facility-img">
+            <h3>Computer Lab</h3>
+            <p>Equipped with internet access and desktop computers for practical coding classes.</p>
+          </article>
+
+          <article class="facility-card">
+            <img src="images/library.jpg" alt="Library" class="facility-img">
+            <h3>Library</h3>
+            <p>Contains textbooks, reference journals, quiet reading space, and study material.</p>
+          </article>
+
+          <article class="facility-card">
+            <img src="images/smart_classroom.jpg" alt="Smart Classroom" class="facility-img">
+            <h3>Smart Classroom</h3>
+            <p>Classrooms equipped with projectors and digital teaching boards.</p>
+          </article>
+
+          <article class="facility-card">
+            <img src="images/hostel1.webp" alt="Hostel" class="facility-img">
+            <h3>Hostel</h3>
+            <p>Residential hostel facility for students with security and dining mess.</p>
+          </article>
+
+          <article class="facility-card">
+            <img src="images/sports_complex.jpg" alt="Sports Complex" class="facility-img">
+            <h3>Sports Complex</h3>
+            <p>Playground for cricket, football, basketball, and outdoor physical activities.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section-bg">
+      <div class="container">
+        <h2 class="section-title">Admission Form</h2>
+        <p class="section-subtitle">Fill in the details for admission registration</p>
+
+        <div class="form-box">
+          <form action="#" method="post">
+            
+            <div class="form-field">
+              <label for="name">Student Name:</label>
+              <input type="text" id="name" name="name" class="input-control" placeholder="Enter student name" required minlength="3">
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email Address:</label>
+              <input type="email" id="email" name="email" class="input-control" placeholder="Enter email address" required>
+            </div>
+
+            <div class="form-field">
+              <label for="mobile">Mobile Number:</label>
+              <input type="tel" id="mobile" name="mobile" class="input-control" placeholder="Enter 10-digit mobile number" required pattern="[0-9]{10}">
+            </div>
+
+            <div class="form-field">
+              <label for="dob">Date of Birth:</label>
+              <input type="date" id="dob" name="dob" class="input-control" required>
+            </div>
+
+            <div class="form-field">
+              <label>Gender:</label>
+              <div>
+                <label class="radio-option">
+                  <input type="radio" name="gender" value="Male" required> Male
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="gender" value="Female"> Female
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="gender" value="Other"> Other
+                </label>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="course">Select Course:</label>
+              <select id="course" name="course" class="input-control" required>
+                <option value="" disabled selected>-- Select Course --</option>
+                <option value="B.Tech CSE">B.Tech CSE</option>
+                <option value="B.Tech ECE">B.Tech ECE</option>
+                <option value="B.Tech EEE">B.Tech EEE</option>
+                <option value="MCA">MCA</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label>Hobbies:</label>
+              <div>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="hobbies" value="Reading"> Reading
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="hobbies" value="Sports"> Sports
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="hobbies" value="Coding"> Coding
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="hobbies" value="Music"> Music
+                </label>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="address">Address:</label>
+              <textarea id="address" name="address" class="input-control" rows="4" placeholder="Enter full address" required></textarea>
+            </div>
+
+            <div class="form-field">
+              <label for="photo">Upload Photo:</label>
+              <input type="file" id="photo" name="photo" class="input-control" accept="image/*">
+            </div>
+
+            <div class="form-btn-group">
+              <button type="submit" class="btn">Submit</button>
+              <button type="reset" class="btn btn-reset">Reset</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-subtitle">Reach out to the college address and administration</p>
+
+        <div class="contact-container">
+          
+          <div class="contact-details">
+            <h3>NIST University Campus</h3>
+            <p><strong>Address:</strong> Palur Hills, Berhampur, Odisha 761008</p>
+            <p><strong>Phone:</strong> +91 6370****23</p>
+            <p><strong>Email:</strong> info@nist.edu</p>
+          </div>
+
+          <div class="map-box">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3787.896791986427!2d84.9042!3d19.2638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3d574d752c0001%3A0x8ddf73ec0472144d!2sNIST%20University!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+              loading="lazy" 
+              title="NIST Campus Map Location">
+            </iframe>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <h3>NIST University</h3>
+      
+      <div class="footer-links">
+        <span>Home</span> | 
+        <span>About</span> | 
+        <span>Courses</span> | 
+        <span>Faculty</span> | 
+        <span>Facilities</span> | 
+        <span>Admission</span> | 
+        <span>Contact</span>
+      </div>
+
+      <p class="copyright-text">&copy; 2026 NIST University.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
